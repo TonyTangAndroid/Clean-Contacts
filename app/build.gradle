@@ -1,5 +1,4 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.neenbedankt.android-apt'
 apply from: rootProject.file('gradle/checkstyle.gradle')
 
 def STRING = "String"
@@ -55,7 +54,7 @@ android {
 dependencies {
   compile rootProject.ext.dependencies.androidSupportv7
   compile rootProject.ext.dependencies.dagger
-  apt rootProject.ext.dependencies.daggerCompiler
+  annotationProcessor rootProject.ext.dependencies.daggerCompiler
   compile rootProject.ext.dependencies.butterknife
   compile rootProject.ext.dependencies.snackBars
   compile rootProject.ext.dependencies.recyclerView
@@ -63,13 +62,13 @@ dependencies {
   compile rootProject.ext.dependencies.recyclerAdapters
   compile rootProject.ext.dependencies.fAB
   compile rootProject.ext.dependencies.coordinator
-  apt rootProject.ext.dependencies.coordinatorCompiler
+  annotationProcessor rootProject.ext.dependencies.coordinatorCompiler
 
   compile project(':domain')
   compile project(':presentation')
   compile project(':data')
 
-  androidTestApt rootProject.ext.dependencies.daggerCompiler
+  androidTestAnnotationProcessor rootProject.ext.dependencies.daggerCompiler
   androidTestCompile rootProject.ext.testDependencies.mockito
   androidTestCompile rootProject.ext.androidTestDependencies.runner
   androidTestCompile rootProject.ext.androidTestDependencies.rules
